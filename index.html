@@ -5,208 +5,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>USA Restaurant | Monticello</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+background:#0d0d0d;
+color:white;
+overflow-x:hidden;
 }
 
-body{
-background:linear-gradient(180deg,#0f0f0f,#1a0000);
-color:#fff;
-overflow-x:hidden;
+h1,h2,h3{
+font-family:'Playfair Display',serif;
 }
 
 section{
 padding:80px 20px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-}
-
-h1,h2{
-text-align:center;
-margin-bottom:20px;
 }
 
 .hero{
 height:100vh;
+background:
+linear-gradient(to bottom,rgba(0,0,0,0.7),#0d0d0d),
+url("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:radial-gradient(circle at center,#ff3c00 0%,#1a0000 70%);
+position:relative;
 }
 
 .hero h1{
-font-size:3rem;
-font-weight:800;
-letter-spacing:2px;
+font-size:3.5rem;
+letter-spacing:3px;
+color:#ff5a00;
 }
 
 .hero p{
 margin-top:15px;
-font-size:1.1rem;
 opacity:0.9;
 }
 
 .btn{
 margin-top:25px;
-display:inline-block;
-padding:14px 30px;
-background:#ff3c00;
-color:#fff;
-text-decoration:none;
-font-weight:600;
+padding:14px 35px;
+background:linear-gradient(45deg,#ff2d00,#ff8800);
+border:none;
 border-radius:50px;
+color:white;
+font-weight:600;
+cursor:pointer;
+text-decoration:none;
 transition:0.3s;
+box-shadow:0 0 20px rgba(255,100,0,0.6);
 }
 
 .btn:hover{
-background:#ff6a00;
-transform:scale(1.05);
+transform:scale(1.08);
+box-shadow:0 0 30px rgba(255,120,0,0.9);
 }
 
-.menu-category{
-margin-top:50px;
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
 }
 
-.menu-category h3{
-margin-bottom:15px;
+.menu-card{
+background:#1a1a1a;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(255,80,0,0.2);
+transition:0.4s;
+}
+
+.menu-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(255,120,0,0.5);
+}
+
+.menu-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.menu-content{
+padding:20px;
+}
+
+.menu-content h3{
 color:#ff6a00;
+margin-bottom:10px;
 }
 
-.menu-item{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid rgba(255,255,255,0.1);
+.price{
+color:#ffb347;
+font-weight:600;
+margin-top:5px;
+}
+
+.map-section iframe{
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,80,0,0.4);
 }
 
 footer{
 text-align:center;
-padding:40px 20px;
+padding:40px;
 background:#000;
-}
-
-.map-container{
-margin-top:40px;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 0 30px rgba(255,60,0,0.4);
-}
-
-.flame{
-position:fixed;
-width:200%;
-height:200%;
-background:radial-gradient(circle,rgba(255,60,0,0.15) 0%,transparent 70%);
-animation:flameMove 6s infinite alternate;
-z-index:-1;
-}
-
-@keyframes flameMove{
-0%{transform:translate(-10%,-10%) scale(1);}
-100%{transform:translate(10%,10%) scale(1.2);}
+margin-top:50px;
 }
 
 @media(max-width:768px){
-.hero h1{font-size:2.2rem;}
+.hero h1{font-size:2.3rem}
 }
 </style>
 </head>
 
 <body>
 
-<div class="flame"></div>
-
 <section class="hero">
 <h1>USA Restaurant</h1>
 <p>1515 N Main St, Monticello, IN 47960</p>
-<a href="tel:+15745838179" class="btn">📞 Call to Order</a>
+<a href="tel:+15745838179" class="btn">Call To Order</a>
 </section>
 
 <section>
-<h2>🔥 Our Menu 🔥</h2>
+<h2 style="text-align:center;color:#ff5a00;">🔥 Featured Menu 🔥</h2>
 
-<div class="menu-category">
-<h3>Classic Favorites</h3>
-<div class="menu-item"><span>Half Lb. BBQ Chicken</span><span>$10.50</span></div>
-<div class="menu-item"><span>Roast Pork</span><span>$10.50</span></div>
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1601924638867-3ec2f3b47d09?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Half Lb. BBQ Chicken</h3>
+<p>Classic grilled BBQ chicken.</p>
+<div class="price">$10.50</div>
+</div>
 </div>
 
-<div class="menu-category">
-<h3>Mediterranean Dishes</h3>
-<p>Served with small Greek salad & Greek potatoes</p>
-<div class="menu-item"><span>Gyros Dinner</span><span>$12.99</span></div>
-<div class="menu-item"><span>Broiled Chicken Breast Filet</span><span>$12.99</span></div>
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Gyros Dinner</h3>
+<p>Served with Greek salad & potatoes.</p>
+<div class="price">$12.99</div>
+</div>
 </div>
 
-<div class="menu-category">
-<h3>Greek Pasta Dishes</h3>
-<p>Served with small Greek salad & pasta sautéed with spices</p>
-<div class="menu-item"><span>Butterfly Pork Chop & Pasta</span><span>$11.99</span></div>
-<div class="menu-item"><span>Chicken Breast Filet & Pasta</span><span>$11.99</span></div>
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>BBQ Ribs</h3>
+<p>Slow cooked smoky ribs.</p>
+<div class="price">$13.99</div>
+</div>
 </div>
 
-<div class="menu-category">
-<h3>Children's Menu</h3>
-<p>12 & under (Ice cream included)</p>
-<div class="menu-item"><span>Hamburger & Fries</span><span>$4.99</span></div>
-<div class="menu-item"><span>Spaghetti</span><span>$5.50</span></div>
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1589308078056-fdedcfe3f4a6?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Spaghetti</h3>
+<p>Kids favorite pasta.</p>
+<div class="price">$5.50</div>
+</div>
 </div>
 
-<div class="menu-category">
-<h3>BBQ</h3>
-<div class="menu-item"><span>BBQ Ribs</span><span>$13.99</span></div>
-<div class="menu-item"><span>BBQ Chicken Breast Filet</span><span>$11.50</span></div>
 </div>
-
-<a href="tel:+15745838179" class="btn">Order Now</a>
 </section>
 
-<section>
-<h2>📍 Visit Us</h2>
-<div class="map-container">
+<section class="map-section">
+<h2 style="text-align:center;color:#ff5a00;">📍 Visit Us</h2>
+<br>
 <iframe
 width="100%"
 height="400"
-style="border:0"
 loading="lazy"
-allowfullscreen
 src="https://www.google.com/maps?q=1515+N+Main+St+Monticello+IN+47960&output=embed">
 </iframe>
-</div>
 </section>
 
 <footer>
 <p>📞 574-583-8179</p>
 <p>Pricing & availability subject to change.</p>
-<p>© 2026 USA Restaurant</p>
 </footer>
 
 <script>
-gsap.from(".hero h1",{y:-50,opacity:0,duration:1});
+gsap.from(".hero h1",{y:-80,opacity:0,duration:1});
 gsap.from(".hero p",{opacity:0,duration:1,delay:0.5});
-gsap.from(".btn",{scale:0.8,opacity:0,duration:0.8,delay:1});
+gsap.from(".btn",{scale:0.7,opacity:0,duration:0.8,delay:0.8});
 
-gsap.utils.toArray(".menu-category").forEach((el,i)=>{
-gsap.from(el,{
-scrollTrigger:el,
+gsap.from(".menu-card",{
+scrollTrigger:{
+trigger:".menu-card",
+start:"top 85%"
+},
 y:50,
 opacity:0,
-duration:1,
-delay:i*0.2
-});
+stagger:0.2,
+duration:0.8
 });
 </script>
 
